@@ -11,27 +11,39 @@ var path = d3.geo.path()
 
 var graticule = d3.geo.graticule();
 
+var curYear;
+
 var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+  .attr("width", width)
+  .attr("height", height);
 
 svg.append("path")
-    .datum(graticule)
-    .attr("class", "graticule")
-    .attr("d", path);
+  .datum(graticule)
+  .attr("class", "graticule")
+  .attr("d", path);
+
+var yearLabel = svg.append("text")
+  .attr("class", "year-label")
+  .attr("x", "420px")
+  .attr("y", "900px")
+  .text(curYear)
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "70px")
+  .attr("fill", "#363C49");
+
 
 d3.json("./data/world-50m.json", function(error, world) {
   if (error) throw error;
 
   svg.insert("path", ".graticule")
-      .datum(topojson.feature(world, world.objects.land))
-      .attr("class", "land")
-      .attr("d", path);
+    .datum(topojson.feature(world, world.objects.land))
+    .attr("class", "land")
+    .attr("d", path);
 
   svg.insert("path", ".graticule")
-      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
-      .attr("class", "boundary")
-      .attr("d", path);
+    .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
+    .attr("class", "boundary")
+    .attr("d", path);
 
   d3.json("./data/y77d-th95.geojson", function(error, meteorites){
     var coordinates = meteorites.features
@@ -55,10 +67,12 @@ d3.json("./data/world-50m.json", function(error, world) {
     setInterval(showMeteorites, 950);
     var minYear = coordinates[100].date.year();
     var maxYear = coordinates[coordinates.length-1].date.year();
-    var curYear = minYear;
+    curYear = minYear;
     var coordsThisYear = [];
 
     function showMeteorites(){
+      yearLabel.text(curYear);
+
       coordsThisYear = coordinates.filter(function(coord){ return coord.date.year() === curYear;  });
 
       svg.selectAll(".star-container").remove();
@@ -81,9 +95,8 @@ d3.json("./data/world-50m.json", function(error, world) {
         curYear = minYear; // reset
       }
     }
-
-
   });
+
 });
 
 d3.select(self.frameElement).style("height", height + "px");

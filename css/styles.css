@@ -1,11 +1,11 @@
 body {
-  background:#363C49;
+  background:#060C09;
 }
 
 /* Map */
 .graticule {
   fill: none;
-  stroke: #777;
+  stroke: #161C19;
   stroke-opacity: .5;
   stroke-width: .5px;
 }
@@ -20,6 +20,12 @@ body {
   stroke-width: .5px;
 }
 
+/* Labels */
+
+.year-label {
+  fill: #222;
+  text-shadow: -3px 3px #020208;
+}
 
 /* Meteorites */
 
