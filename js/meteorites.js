@@ -61,9 +61,15 @@ d3.json("./data/world-50m.json", function(error, world) {
         return coordA.date.year() - coordB.date.year();
       });
 
-    var minYear = coordinates[100].date.year();
-    var maxYear = coordinates[coordinates.length-1].date.year();
-    curYear = minYear;
+    var years = coordinates.reduce(function(years, coord){
+      if( years.indexOf(coord.date.year()) === -1 ){
+        years.push(coord.date.year());
+      }
+      return years;
+    }, []);
+
+    var curYearIdx = 0;
+    curYear = years[curYearIdx];
     var coordsThisYear = [];
 
     function showMeteorites(){
@@ -87,9 +93,10 @@ d3.json("./data/world-50m.json", function(error, world) {
         .attr('class', 'star')
         .attr('d','M12.584,5.888c-5.012,4.177-6.044,5.356-8.337,5.504 c-2.263,0.146-3.765-0.953-3.538-3.473c0.212-2.354,4.109-4.226,7.617-5.258c4.455-1.311,12.153-1.769,12.153-1.769 S16.498,2.627,12.584,5.888z');
 
-      if(++curYear > maxYear){
-        curYear = minYear; // reset
+      if(++curYearIdx >= years.length){
+        curYearIdx = 0; // reset
       }
+      curYear = years[curYearIdx];
 
       setTimeout(showMeteorites, 500+(coordsThisYear.length * 100));
     }
