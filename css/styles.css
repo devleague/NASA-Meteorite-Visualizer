@@ -25,6 +25,9 @@ body {
 .year-label {
   fill: #222;
   text-shadow: -3px 3px #020208;
+  font-family: sans-serif;
+  font-size: 70px;
+  font-weight: bold;
 }
 
 /* Meteorites */

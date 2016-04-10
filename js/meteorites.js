@@ -26,10 +26,7 @@ var yearLabel = svg.append("text")
   .attr("class", "year-label")
   .attr("x", "420px")
   .attr("y", "900px")
-  .text(curYear)
-  .attr("font-family", "sans-serif")
-  .attr("font-size", "70px")
-  .attr("fill", "#363C49");
+  .text(curYear);
 
 
 d3.json("./data/world-50m.json", function(error, world) {
