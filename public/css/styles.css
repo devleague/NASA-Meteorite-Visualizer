@@ -31,10 +31,38 @@ body {
   fill: #FFF;
   position:relative;
   transform-origin:100% 0;
-  animation:star-ani 0.75s infinite ease-out;
+  animation: star-ani 0.65s normal ease-out;
   animation-direction: normal;
   opacity:0;
 }
+.star-container:nth-child(4) .star{
+  -webkit-animation-delay: 0s;
+}
+.star-container:nth-child(5) .star{
+  fill: #CCCCFF;
+  -webkit-animation-delay: 0.1s;
+}
+.star-container:nth-child(6) .star{
+  fill: #FFFF33;
+  -webkit-animation-delay: 0.2s;
+}
+.star-container:nth-child(7) .star{
+  fill: #33FFFF;
+  -webkit-animation-delay: 0.3s;
+}
+.star-container:nth-child(8) .star{
+  fill: #FF33FF;
+  -webkit-animation-delay: 0.4s;
+}
+.star-container:nth-child(9) .star{
+  fill: #FF6666;
+  -webkit-animation-delay: 0.5s;
+}
+.star-container:nth-child(10) .star{
+  fill: #6666FF;
+  -webkit-animation-delay: 0.6s;
+}
+
 @-webkit-keyframes star-ani {
   0% {
     opacity:0;

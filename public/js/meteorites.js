@@ -52,8 +52,8 @@ d3.json("/data/world-50m.json", function(error, world) {
         return coordA.date.year() - coordB.date.year();
       });
 
-    setInterval(showMeteorites, 750);
-    var minYear = coordinates[103].date.year();
+    setInterval(showMeteorites, 950);
+    var minYear = coordinates[100].date.year();
     var maxYear = coordinates[coordinates.length-1].date.year();
     var curYear = minYear;
     var coordsThisYear = [];
