@@ -45,7 +45,7 @@ d3.json("./data/world-50m.json", function(error, world) {
     .attr("class", "boundary")
     .attr("d", path);
 
-  d3.json("./data/y77d-th95.geojson", function(error, meteorites){
+  d3.json("https://data.nasa.gov/resource/y77d-th95.geojson", function(error, meteorites){
     var coordinates = meteorites.features
       .filter(function(feature){
         return feature.geometry !== null;
