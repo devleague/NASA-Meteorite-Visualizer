@@ -1,0 +1,51 @@
+body {
+  background:#363C49;
+}
+
+/* Map */
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-opacity: .5;
+  stroke-width: .5px;
+}
+
+.land {
+  fill: #222;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+
+/* Meteorites */
+
+.star {
+  display:block;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  fill: #FFF;
+  position:relative;
+  transform-origin:100% 0;
+  animation:star-ani 0.75s infinite ease-out;
+  animation-direction: normal;
+  opacity:0;
+}
+@-webkit-keyframes star-ani {
+  0% {
+    opacity:0;
+    transform:scale(0) rotate(0) translate3d(500px, -350px, 0);
+  }
+  60% {
+    opacity:1;
+    transform:scale(1) rotate(-5deg) translate3d(0px, 0px, 0);
+  }
+  100% {
+    opacity:0;
+    transform:scale(.7) rotate(-10deg) translate3d(-20px, 22px, 0);
+  }
+}
