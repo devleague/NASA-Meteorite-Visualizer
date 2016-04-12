@@ -1,3 +1,22 @@
 body {
   background:#060C09;
 }
+
+/* Map */
+.graticule {
+  fill: none;
+  stroke: #161C19;
+  stroke-opacity: .5;
+  stroke-width: .5px;
+}
+
+.land {
+  fill: #222;
+}
+
+.boundary {
+  fill: none;
+  stroke: #464C49;
+  stroke-width: .5px;
+}
+
