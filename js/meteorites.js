@@ -45,6 +45,11 @@ d3.json("./data/world-50m.json", function(error, world) {
   d3.json("https://data.nasa.gov/resource/y77d-th95.geojson", function(error, meteorites){
     if (error) throw error;
 
+    var coordinates = meteorites.features
+      .filter(function(feature){
+        return feature.geometry !== null;
+      });
+
   });
 
 });
