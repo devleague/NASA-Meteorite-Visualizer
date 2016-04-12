@@ -20,3 +20,59 @@ body {
   stroke-width: .5px;
 }
 
+/* Meteorites */
+
+.star {
+  display:block;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  fill: #FFF;
+  position:relative;
+  transform-origin:100% 0;
+  animation: star-ani 0.65s normal ease-out;
+  animation-direction: normal;
+  opacity:0;
+}
+.star-container:nth-child(4) .star{
+  -webkit-animation-delay: 0s;
+}
+.star-container:nth-child(5) .star{
+  fill: #CCCCFF;
+  -webkit-animation-delay: 0.1s;
+}
+.star-container:nth-child(6) .star{
+  fill: #FFFF33;
+  -webkit-animation-delay: 0.2s;
+}
+.star-container:nth-child(7) .star{
+  fill: #33FFFF;
+  -webkit-animation-delay: 0.3s;
+}
+.star-container:nth-child(8) .star{
+  fill: #FF33FF;
+  -webkit-animation-delay: 0.4s;
+}
+.star-container:nth-child(9) .star{
+  fill: #FF6666;
+  -webkit-animation-delay: 0.5s;
+}
+.star-container:nth-child(10) .star{
+  fill: #6666FF;
+  -webkit-animation-delay: 0.6s;
+}
+
+@-webkit-keyframes star-ani {
+  0% {
+    opacity:0;
+    transform:scale(0) rotate(0) translate3d(500px, -350px, 0);
+  }
+  60% {
+    opacity:1;
+    transform:scale(1) rotate(-5deg) translate3d(0px, 0px, 0);
+  }
+  100% {
+    opacity:0;
+    transform:scale(.7) rotate(-10deg) translate3d(-20px, 22px, 0);
+  }
+}
