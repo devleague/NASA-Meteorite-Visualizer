@@ -58,6 +58,9 @@ d3.json("./data/world-50m.json", function(error, world) {
           lat : feature.geometry.coordinates[0],
           long: feature.geometry.coordinates[1]
         };
+      })
+      .sort(function(coordA, coordB){
+        return coordA.date.year() - coordB.date.year();
       });
 
   });
