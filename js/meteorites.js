@@ -79,12 +79,14 @@ d3.json("./data/world-50m.json", function(error, world) {
 
       coordsThisYear = coordinates.filter(function(coord){ return coord.date.year() === curYear;  });
 
+      svg.selectAll(".star-container").remove();
+
       var fallingMeteorites = svg.selectAll(".star-container")
         .data(coordsThisYear);
 
       fallingMeteorites.enter()
         .append("g")
-        .attr('class', '.star-container')
+        .attr('class', 'star-container')
         .attr("transform", function(d) {
           return "translate(" + projection([d.lat,d.long]) + ")";
         })
@@ -92,9 +94,15 @@ d3.json("./data/world-50m.json", function(error, world) {
         .attr('fill', 'white')
         .attr('r', 5);
 
+      if(++curYearIdx >= years.length){
+        curYearIdx = 0; // reset
+      }
+      curYear = years[curYearIdx];
+
+      setTimeout(showMeteorites, 500+(coordsThisYear.length * 100));
     }
 
-    showMeteorites();
+    setTimeout(showMeteorites, 1000);
   });
 
 });
