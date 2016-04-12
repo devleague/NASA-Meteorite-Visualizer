@@ -70,7 +70,7 @@ d3.json("./data/world-50m.json", function(error, world) {
 
       fallingMeteorites.enter()
         .append("g")
-        .attr('class', '.star-container')
+        .attr('class', 'star-container')
         .attr("transform", function(d) {
           return "translate(" + projection([d.lat,d.long]) + ")";
         })
