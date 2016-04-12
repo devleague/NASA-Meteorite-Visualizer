@@ -72,12 +72,15 @@ d3.json("./data/world-50m.json", function(error, world) {
 
     var curYearIdx = 0;
     curYear = years[curYearIdx];
+    var coordsThisYear = [];
 
     function showMeteorites(){
       yearLabel.text(curYear);
 
+      coordsThisYear = coordinates.filter(function(coord){ return coord.date.year() === curYear;  });
+
       var fallingMeteorites = svg.selectAll(".star-container")
-        .data(coordinates);
+        .data(coordsThisYear);
 
       fallingMeteorites.enter()
         .append("g")
