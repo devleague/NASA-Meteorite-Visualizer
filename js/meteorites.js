@@ -63,6 +63,24 @@ d3.json("./data/world-50m.json", function(error, world) {
         return coordA.date.year() - coordB.date.year();
       });
 
+    function showMeteorites(){
+
+      var fallingMeteorites = svg.selectAll(".star-container")
+        .data(coordinates);
+
+      fallingMeteorites.enter()
+        .append("g")
+        .attr('class', '.star-container')
+        .attr("transform", function(d) {
+          return "translate(" + projection([d.lat,d.long]) + ")";
+        })
+        .append('circle')
+        .attr('fill', 'white')
+        .attr('r', 5);
+
+    }
+
+    showMeteorites();
   });
 
 });
