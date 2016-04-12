@@ -25,7 +25,10 @@ A Code Editor
 1. [meteorites.js d3.json(-->meteorites)](https://github.com/devleague/NASA-Meteorite-Visualizer/compare/step-12...step-13) sort the resulting coordinate data by `year` in `ascending` order _look at data_
 1. [meteorites.js d3.json(-->meteorites)](https://github.com/devleague/NASA-Meteorite-Visualizer/compare/step-13...step-14) create then invoke a function named `showMeteorites()` that will add svg elements for each meteorite projected on the map
 1. [meteorites.js d3.json(-->meteorites)](https://github.com/devleague/NASA-Meteorite-Visualizer/compare/step-14...step-15) (above `showMeteorites()`) generate a new array of unique years from the years in `coordinates` _look at data_
-1. [meteorites.js d3.json(-->meteorites)](https://github.com/devleague/NASA-Meteorite-Visualizer/compare/step-15...step-16) track the `curYearIdx` by setting it to `0`, initialize `curYear`, and (inside `showMeteorites()`) display curYear in the `yearLabel` svg element
+1. [meteorites.js d3.json(-->meteorites)](https://github.com/devleague/NASA-Meteorite-Visualizer/compare/step-15...step-16)
+    1. track the `curYearIdx` by setting it to `0`
+    1. initialize `curYear`
+    1. (inside `showMeteorites()`) display curYear in the `yearLabel` svg element
 1. [meteorites.js d3.json(-->meteorites)](https://github.com/devleague/NASA-Meteorite-Visualizer/compare/step-16...step-17)
     1. initialize a new array named `coordsThisYear`
     1. in the `showMeteorites()` function, set `coordsThisYear` to the `coordinates` that belong to the current year
