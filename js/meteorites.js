@@ -48,6 +48,9 @@ d3.json("./data/world-50m.json", function(error, world) {
     var coordinates = meteorites.features
       .filter(function(feature){
         return feature.geometry !== null;
+      })
+      .filter(function(feature){
+        return feature.geometry.type === "Point";
       });
 
   });
