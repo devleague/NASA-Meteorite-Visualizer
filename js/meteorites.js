@@ -63,6 +63,13 @@ d3.json("./data/world-50m.json", function(error, world) {
         return coordA.date.year() - coordB.date.year();
       });
 
+    var years = coordinates.reduce(function(years, coord){
+      if( years.indexOf(coord.date.year()) === -1 ){
+        years.push(coord.date.year());
+      }
+      return years;
+    }, []);
+
     function showMeteorites(){
 
       var fallingMeteorites = svg.selectAll(".star-container")
