@@ -51,6 +51,13 @@ d3.json("./data/world-50m.json", function(error, world) {
       })
       .filter(function(feature){
         return feature.geometry.type === "Point";
+      })
+      .map(function(feature){
+        return {
+          date: moment(feature.properties.year),
+          lat : feature.geometry.coordinates[0],
+          long: feature.geometry.coordinates[1]
+        };
       });
 
   });
